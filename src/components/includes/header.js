@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
 
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../redux/users'
@@ -9,6 +9,7 @@ import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from
 
 const Header = () => {
   const dispatch = useDispatch();
+  let history = useHistory();
 
   const logout = () => {
     localStorage.clear();
@@ -20,6 +21,7 @@ const Header = () => {
         auth: false
       }
       dispatch(getUsers(data));
+      history.push("/");
     }, 1000)
   }
 

@@ -39,7 +39,9 @@ h1 {
     font-weight: 700;
 }
 html, body, a, label, span, h2, h3, h4, h5, h6, p {
-    font-family: "cambria" !important;
+    font-family:  Menlo,"Roboto Mono",Courier New, !important;
+    line-height: 1.8;
+    font-weight: 400;
 }
 .font-900 {
     font-weight: 900;
@@ -89,4 +91,10 @@ html {
 
 .text-white {
     color: $white !important;
+}
+
+.card-footer {
+    background-color: unset !important;
+    border-top: unset !important;
+    font-size: 13px !important;
 }

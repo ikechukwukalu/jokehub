@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import NoMatch from "../helpers/no-match";
+import NoMatch from "./helpers/no-match";
 
-import Header from "../includes/header";
-import Footer from "../includes/footer";
+import Header from "./includes/header";
+import Footer from "./includes/footer";
 
-import Home from "./index";
+import Home from "./session/home.jsx";
 
 class Components extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router } from "react-router-dom";
 
-import User from './components/session';
+import User from './components';
 import Visitor from './components/guest';
 
 import ScrollToTop from './components/helpers/scroll.js';

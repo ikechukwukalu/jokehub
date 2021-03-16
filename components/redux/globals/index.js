@@ -5,7 +5,7 @@ export const initialState = {
     api_url: 'https://v2.jokeapi.dev/joke/',
     blacklist: 'blacklistFlags=nsfw,religious,racist,sexist',
     lang: 'en',
-    category: localStorage.getItem("category") === null ? null : localStorage.getItem("category"),
+    category: localStorage.getItem("category") === null ? ['Any'] : localStorage.getItem("category").split(","),
     safe: 'safe-mode'
 }
 //Create a slice

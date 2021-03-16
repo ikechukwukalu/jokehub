@@ -1,25 +1,35 @@
 import React, { useEffect } from 'react';
 import { HashRouter as Router } from "react-router-dom";
-import './App.css';
-import Components from './components/index.jsx';
+
+import User from './components/session';
+import Visitor from './components/guest';
+
 import ScrollToTop from './components/helpers/scroll.js';
 
-import { useDispatch, useSelector } from 'react-redux'
-import { setGlobals, globalsSelector } from './components/redux/globals'
+import { useDispatch, useSelector } from 'react-redux';
+import { usersSelector } from './components/redux/users';
+import { setCategory } from './components/redux/globals';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/sass/style.scss';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { base_url, api_url } = useSelector(globalsSelector);
-  console.info(base_url, api_url);
-
+  const { auth } = useSelector(usersSelector);
+  const authUser = () => {
+    if(auth)
+      return <User />
+    else
+      return <Visitor />
+  }
   useEffect(() => {
-      dispatch(setGlobals())
-  }, [dispatch]);
+    dispatch(setCategory());
+  }, [auth]);
 
   return (
     <Router>
       <ScrollToTop>
-        <Components />
+        {authUser()}
       </ScrollToTop>
     </Router>
   );

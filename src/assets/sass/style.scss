@@ -1,0 +1,92 @@
+// Colors
+$black: #343a40;
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$white: #ffffff;
+
+@font-face {
+  font-family: "Beauty Mountains Personal Use";
+  src: url("../fonts/BeautyMountainsPersonalUse.woff2") format("woff2"),
+    url("../fonts/BeautyMountainsPersonalUse.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Beauty Bright Personal Use";
+  src: url("../fonts/BeautyBrightPersonalUse-Regular.woff2") format("woff2"),
+    url("../fonts/BeautyBrightPersonalUse-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "~toastify-js/src/toastify.css";
+
+h1 {
+  font-family: "Beauty Mountains Personal Use";
+}
+.form-group > label {
+    font-weight: 700;
+}
+html, body, a, label, span, h2, h3, h4, h5, h6, p {
+    font-family: "cambria" !important;
+}
+.font-900 {
+    font-weight: 900;
+}
+#landing-joke {
+    font-size: small;
+    font-family: "consolas";
+    color: $white !important;
+}
+.btn-success {
+    background-color: $black !important;
+    color: $white !important;
+    border-color: $black !important;
+}
+body::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px $white!important;
+    border-radius: 0 !important;
+    background: $white !important;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 0 !important;
+    -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0.226) !important;
+    background: $black !important;
+}
+
+html {
+    overflow-y: scroll !important;
+    scrollbar-color: $black $white !important;
+    scrollbar-width: thin !important;
+}
+
+.fixed-bottom {
+    position: fixed;
+    margin: auto;
+    height: 100px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.text-white {
+    color: $white !important;
+}

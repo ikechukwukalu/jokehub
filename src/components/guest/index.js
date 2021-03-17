@@ -62,7 +62,7 @@ const Guest = () => {
                                         </div>
                                         <div className="form-group pt-3">
                                             <button type="submit" className="btn btn-success">See More Jokes!</button>
-                                            <button type="button" className="btn btn-link" onClick={() => setBoth(!both)}>{both ? "Want to see separate jokes?" : "Show jokes together?"}</button>
+                                            <button type="button" className="btn btn-link d-none d-md-inline" onClick={() => setBoth(!both)}>{both ? "Want to see separate jokes?" : "Show jokes together?"}</button>
                                         </div>
                                     </form>
                                 </div>

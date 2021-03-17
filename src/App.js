@@ -17,7 +17,7 @@ const App = () => {
   const dispatch = useDispatch();
   const { auth } = useSelector(usersSelector);
   const authUser = () => {
-    if(auth)
+    if (auth)
       return <User />
     else
       return <Visitor />

@@ -28,13 +28,13 @@ const Jokes = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className="row justify-content-center align-items-center m-3">
-                                        <JokeComponent 
-                                            fetch={randomize} 
-                                            amount={10} 
-                                            both={both} 
-                                            typeParam={type} 
-                                            langParam={lang} 
-                                            categoryParam={category} 
+                                        <JokeComponent
+                                            fetch={randomize}
+                                            amount={10}
+                                            both={both}
+                                            typeParam={type}
+                                            langParam={lang}
+                                            categoryParam={category}
                                         />
                                     </div>
                                 </div>

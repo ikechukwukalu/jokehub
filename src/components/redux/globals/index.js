@@ -12,7 +12,7 @@ const globalsSlice = createSlice({
     name: 'globals',
     initialState,
     reducers: {
-        getCategory: (state, { payload } ) => {
+        getCategory: (state, { payload }) => {
             localStorage.setItem("category", payload.categories);
             state.category = localStorage.getItem("category");
         },
@@ -33,8 +33,7 @@ export function setCategory() {
     return async (dispatch) => {
         const res = await axios('https://v2.jokeapi.dev/categories');
         const { data, status } = await res;
-        if(status === 200 && data.error === false)
+        if (status === 200 && data.error === false)
             return dispatch(getCategory(data));
     }
-    
 }

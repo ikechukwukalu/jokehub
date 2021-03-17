@@ -23,7 +23,7 @@ export const makeToast = (text = "This is a toast", type = "success", url = null
     Toastify(json).showToast();
 }
 
-export const sendRequest =  (form = {}, data = {}, thenFunc = () => {}, catchFunc = () => {}) => {
+export const sendRequest = (form = {}, data = {}, thenFunc = () => { }, catchFunc = () => { }) => {
     try {
         axios({
             method: form.method,
@@ -31,8 +31,8 @@ export const sendRequest =  (form = {}, data = {}, thenFunc = () => {}, catchFun
             data: data,
             headers: {}
         })
-        .then(thenFunc)
-        .catch(catchFunc)
+            .then(thenFunc)
+            .catch(catchFunc)
     } catch (e) {
         console.error('Could not send XHR requests');
     }

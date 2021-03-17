@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory  } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../redux/users'
@@ -39,7 +39,7 @@ const Header = () => {
           <ul className="navbar-nav ml-auto">
             <UncontrolledDropdown tag="li" className="nav-item">
               <DropdownToggle tag="a" className="nav-link" href="/" onClick={(e) => e.preventDefault()} caret>
-              {localStorage.getItem("name").toUpperCase()}
+                {localStorage.getItem("name").toUpperCase()}
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem header><a className="nav-link" href="/" onClick={(e) => {

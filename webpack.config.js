@@ -14,7 +14,7 @@ module.exports = {
         filename: 'main.js',
         publicPath: '/' // For production - Change to base directory folder name Eg. "https://localhost/BASENAME/" - publicPath: 'BASENAME'
     },
-    mode: 'development',
+    mode: 'development', // For production - mode: 'production'
     devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, 'react-webpack'),

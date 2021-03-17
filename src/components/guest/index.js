@@ -5,7 +5,7 @@ import { getUsers } from '../redux/users'
 import { globalsSelector } from '../redux/globals'
 
 import submitForm, { makeToast } from '../helpers/custom';
-import Joke from '../extraComponents/joke'
+import JokeComponent from '../extraComponents/joke'
 
 const Guest = () => {
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const Guest = () => {
                     <div className="col-md-6 d-none d-md-block bg-dark">
                         <div className="min-vh-100 text-center m-0 d-flex flex-column justify-content-center align-items-center">
                             <h3 className="text-white font-900">We've got really cool jokes. You can tell <span style={{ fontSize: '30px' }}>👇🏽</span></h3>
-                            <Joke amount={4} both={both} />
+                            <JokeComponent amount={4} both={both} />
                         </div>
                     </div>
                     <div className="col-md-6 p-3">
@@ -61,7 +61,7 @@ const Guest = () => {
                                             <input type="email" className="form-control" id="login-email" name="email" placeholder="" required />
                                         </div>
                                         <div className="form-group pt-3">
-                                            <button type="submit" className="btn btn-success">Jump Right In!</button>
+                                            <button type="submit" className="btn btn-success">See More Jokes!</button>
                                             <button type="button" className="btn btn-link" onClick={() => setBoth(!both)}>{both ? "Want to see separate jokes?" : "Show jokes together?"}</button>
                                         </div>
                                     </form>

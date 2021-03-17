@@ -1,3 +1,5 @@
+@import "~toastify-js/src/toastify.css";
+
 // Colors
 $black: #343a40;
 $blue: #3490dc;
@@ -30,13 +32,11 @@ $white: #ffffff;
   font-display: swap;
 }
 
-@import "~toastify-js/src/toastify.css";
-
 h1 {
   font-family: "Beauty Mountains Personal Use";
 }
-.form-group > label {
-    font-weight: 700;
+label {
+    font-weight: 700 !important;
 }
 html, body, a, label, span, h2, h3, h4, h5, h6, p {
     font-family:  Menlo,"Roboto Mono",Courier New, !important;
@@ -56,16 +56,19 @@ html, body, a, label, span, h2, h3, h4, h5, h6, p {
     color: $white !important;
     border-color: $black !important;
 }
+.btn-green {
+    background-color: $green !important;
+    color: $white !important;
+    border-color: $green !important;
+}
 body::-webkit-scrollbar {
     width: 8px !important;
 }
-
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px $white!important;
     border-radius: 0 !important;
     background: $white !important;
 }
-
 body::-webkit-scrollbar-thumb {
     border-radius: 0 !important;
     -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0.226) !important;
@@ -79,7 +82,7 @@ html {
 }
 
 .fixed-bottom {
-    position: fixed;
+    position: relative;
     margin: auto;
     height: 100px;
     width: 100%;
@@ -87,6 +90,7 @@ html {
     bottom: 0;
     left: 0;
     z-index: 1030;
+    padding-top: 20px;
 }
 
 .text-white {
@@ -97,4 +101,20 @@ html {
     background-color: unset !important;
     border-top: unset !important;
     font-size: 13px !important;
+}
+
+.card-header {
+    background-color: unset !important;
+    border-bottom: unset !important;
+    font-size: 13px !important;
+}
+
+.main {
+    position: relative !important;
+    min-height: calc(100vh - 200px);
+    padding-bottom: 20px;
+}
+
+.min-vh-cs {
+    min-height: calc(100vh - 200px) !important;
 }

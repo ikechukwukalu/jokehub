@@ -14,17 +14,27 @@ import Both from './jokeType/both';
 const Joke = (props) => {
     let [noJokes, setNoJokes] = useState(false);
     let [error, setErrorMessage] = useState('other');
+    let [failMessage, setFailMessage] = useState("We've become the joke...");
 
-    const { api_url, blacklist, lang, category, safe } = useSelector(globalsSelector);
-    const { amount, both } = props;
-    const onTheHouse = 'We\'ve become the joke...';
-
-    let cat = category === null ? ['Any'] : category.split(",");
+    const { api_url, blacklist, category, safe } = useSelector(globalsSelector);
+    const { fetch, amount, both, langParam, typeParam, categoryParam } = props;
+    const checkForCategory = () => {
+        let ary = [];
+        if (categoryParam === null)
+            return category === null ? ['Any'] : category.split(",");
+        else {
+            ary.push(categoryParam);
+            return ary;
+        }
+    }
+    const lang = langParam !== "en" ? "lang=" + langParam : "";
+    const type = typeParam !== "all" ? "type=" + typeParam : "";
+    const cat = checkForCategory();
 
     const displayFailMessage = () => {
         switch (error) {
             case 'api':
-                return <Fragment><b>Sorry, but we could't fetch you some good jokes!</b> We failed you. <span style={{ fontSize: '30px' }}>😭</span></Fragment>;
+                return <Fragment><b>{failMessage}!</b> We failed you. <span style={{ fontSize: '30px' }}>😭</span></Fragment>;
                 break;
             case 'network':
                 return <Fragment><b>Network Error!</b> Please check your network connection</Fragment>;
@@ -38,15 +48,19 @@ const Joke = (props) => {
     }
     const checkForNoJokes = () => {
         return (
-            <Alert color="danger" isOpen={noJokes} toggle={() => setNoJokes(false)}>
+            <Alert color="danger" isOpen={noJokes} toggle={() => { setNoJokes(false); setTimeout(() => landingJoke(), 1000); }}>
                 {displayFailMessage()}
             </Alert>
         )
     }
-    const noJokesResponse = () => {
-        console.error("Could not fetch jokes");
+    const noJokesResponse = (message = "We've become the joke...") => {
+        setFailMessage(message);
         setErrorMessage('api');
-        setNoJokes(true);
+        setNoJokes(true)
+        ReactDOM.render(
+            null,
+            document.getElementById('jokes-hub')
+        )
     }
     const separateJokes = (data) => {
         let single = [];
@@ -72,6 +86,7 @@ const Joke = (props) => {
         )
     }
     const displayJokes = (data) => {
+        setNoJokes(false);
         if (both)
             bothJokes(data);
         else
@@ -83,7 +98,7 @@ const Joke = (props) => {
             document.getElementById('jokes-hub')
         );
         let form = {
-            action: api_url + cat[0] + '?amount=' + amount + '&' + blacklist + '&' + lang + '&' + safe,
+            action: api_url + cat[0] + '?amount=' + amount + '&' + blacklist + '&' + lang + '&' + safe + '&' + type,
             method: 'GET'
         }
         const thenFunc = (response) => {
@@ -92,7 +107,7 @@ const Joke = (props) => {
                 noJokesResponse();
             } else if ((amount > 0 && amount < 2)) {
                 if (data.error) {
-                    noJokesResponse();
+                    noJokesResponse(data.message);
                 } else {
                     let ary = {
                         jokes: []
@@ -101,7 +116,11 @@ const Joke = (props) => {
                     displayJokes(ary);
                 }
             } else {
-                displayJokes(data);
+                if (data.error) {
+                    noJokesResponse(data.message);
+                } else {
+                    displayJokes(data)
+                };
             }
 
         };
@@ -111,7 +130,7 @@ const Joke = (props) => {
                     setErrorMessage('network');
             } else {
                 setErrorMessage('other');
-                ReactDOM.render(onTheHouse, document.getElementById('jokes-hub'));
+                ReactDOM.render(failMessage, document.getElementById('jokes-hub'));
             }
             setNoJokes(true);
         };
@@ -120,19 +139,27 @@ const Joke = (props) => {
 
     useEffect(() => {
         landingJoke();
-    }, [both]);
+    }, [fetch, both, langParam, typeParam, categoryParam]);
 
     return (
         <Fragment>
-            <div id="jokes-hub" className="text-white">Loading...</div>
-            {checkForNoJokes()}
+            <div className="col-12">
+                <div id="jokes-hub" className="text-white">Loading...</div>
+            </div>
+            <div className="col-12">
+                {checkForNoJokes()}
+            </div>
         </Fragment>
     );
 }
 
 Joke.defaultProps = {
     both: false,
-    amount: 1
+    amount: 1,
+    categoryParam: null,
+    langParam: 'en',
+    typeParam: 'all',
+    fetch: null
 }
 
 export default Joke;

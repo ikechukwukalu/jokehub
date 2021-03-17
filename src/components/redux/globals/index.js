@@ -4,7 +4,6 @@ export const initialState = {
     base_url: window.location.origin,
     api_url: 'https://v2.jokeapi.dev/joke/',
     blacklist: 'blacklistFlags=nsfw,religious,racist,sexist',
-    lang: 'en',
     category: localStorage.getItem("category") === null ? null : localStorage.getItem("category"),
     safe: 'safe-mode'
 }

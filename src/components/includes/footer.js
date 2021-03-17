@@ -15,7 +15,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <footer className="fixed-bottom">
+      <footer className="fixed-bottom p-3">
         <p align="center">Copyright ©<span id="fullYear">2021</span> All rights reserved | This app is made with ❤️ by <a href="https://github.com/ikechukwukalu" target="_blank" rel="noopener noreferrer">Ikechukwu kalu</a></p>
       </footer>
     );

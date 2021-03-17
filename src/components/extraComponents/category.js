@@ -9,7 +9,7 @@ const Category = () => {
         <Router>
             <div className="min-vh-cs text-center m-0 d-flex flex-column justify-content-center align-items-center">
                 <div className="container">
-                    <div className="card shadow-sm">
+                    <div className="card shadow-sm m-3">
                         <div className="card-body">
                             <div className="row justify-content-center align-items-center m-3">
                                 {cat}

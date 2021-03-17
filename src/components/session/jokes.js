@@ -16,7 +16,7 @@ const Jokes = () => {
                 <div className="container-fluid mt-3">
                     <div className="row">
                         <div className="col-md-8">
-                            <div className="card p-3 shadow-sm bg-dark">
+                            <div className="card p-3 shadow-sm bg-dark mb-3">
                                 <div className="card-header text-white">
                                     <b>View Jokes&nbsp;{"for " + category + " Category"}</b>
                                     <div className="float-right">
@@ -41,7 +41,7 @@ const Jokes = () => {
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="card p-3 shadow-sm">
+                            <div className="card p-3 shadow-sm mb-3">
                                 <div className="card-header">
                                     <b>Customise Your Jokes</b>
                                 </div>
